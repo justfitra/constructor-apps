@@ -5,15 +5,20 @@ const Projects = () => {
   return (
     <>
       <div
-        className="flex items-center justify-start py-40 bg-secondary w-full"
+        className="flex items-center justify-start py-20 md:py-40 bg-secondary w-full"
         id="services"
       >
-        <div className="max-w-7xl w-full flex flex-col px-6 sm:px-12 lg:px-24 text-dark relative z-10">
-          <h1 className="text-4xl font-bold mb-6 text-dark">Portofolio</h1>
-
+        <div className="max-w-7xl w-full flex flex-col px-8 sm:px-12 lg:px-24 text-dark relative z-10">
+          <h1 className="text-xl sm:text-4xl font-bold mb-4 text-dark">
+            Project
+          </h1>
+          <p className="font-medium text-sm text-gray-500">
+            Jelajahi portofolio beragam proyek konstruksi sukses kami, yang
+            menunjukkan komitmen kami terhadap kualitas dan inovasi.
+          </p>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-            {projects.slice(0, 3).map((project) => (
-              <div key={project.id} className="rounded-lg">
+            {projects.map((project) => (
+              <div key={project.id} className="rounded-lg my-4">
                 <Image
                   src={project.image}
                   alt={project.title}

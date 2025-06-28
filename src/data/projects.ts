@@ -35,6 +35,19 @@ const projects: Project[] = [
                 melalui layanan teknis dan logistik secara aman dan efisien.`,
     image: project3,
   },
+  {
+    id: 4,
+    title: "Kontraktor di Perumahan Pesona Modern ",
+    description: `Saya merupakan kontraktor di proyek Perumahan Pesona Modern dari tahun 2008 hingga 2011, bertanggung jawab atas pembangunan unit rumah tinggal, infrastruktur jalan, dan drainase, dengan fokus pada kualitas konstruksi dan ketepatan waktu pengerjaan.`,
+    image: project1,
+  },
+  {
+    id: 5,
+    title: "Kontraktor di Griya mawar asri tahun 2010 s/d 2012",
+    description: `Kontraktor di Griya Mawar Asri , bertanggung jawab atas pembangunan rumah tinggal, pengerjaan jalan lingkungan, serta sistem drainase. Fokus pada kualitas konstruksi, efisiensi waktu, dan kepuasan penghuni.
+`,
+image: project2,
+  }
 ];
 
 export default projects;

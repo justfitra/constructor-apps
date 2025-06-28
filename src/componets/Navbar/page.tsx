@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Button from "../Button/page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
@@ -41,35 +40,54 @@ const Navbar = () => {
             </h1>
           </div>
           <ul className={`gap-8 font-medium hidden sm:flex ${color}`}>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">Tentang Kami</Link>
-            </li>
-            <li>
-              <Link href="/projects">Portofolio</Link>
-            </li>
-            <li>
-              <Link href="/contact">Hubungi Kami</Link>
-            </li>
+            {[
+              { href: "/", text: "Home" },
+              { href: "/about", text: "Tentang Kami" },
+              { href: "/projects", text: "Project" },
+              { href: "/contact", text: "Hubungi Kami" },
+            ].map((item) => (
+              <li
+                key={item.href}
+                className={`relative pb-1 bg-transparent ${
+                  pathname === item.href ? "text-primary font-semibold" : ""
+                } group`}
+              >
+                <Button
+                  type="href"
+                  text={item.text}
+                  href={item.href}
+                  className={` bg-transparent `}
+                />
+                <span
+                  className={`absolute left-0 top-7 h-[2px] w-full bg-primary transform transition-all duration-300 scale-x-0 group-hover:scale-x-100 origin-left ${
+                    pathname === item.href ? "scale-x-100" : ""
+                  }`}
+                ></span>
+              </li>
+            ))}
           </ul>
-          <div className={`sm:flex items-center hidden ${color}`}>
+          <div
+            className={`sm:flex items-center hidden hover:text-primary transition-all ease-in-out duration-300 group justify-center ${color}`}
+          >
             <FontAwesomeIcon icon={faWhatsapp} className="" />
             <Button
               type="href"
-              href="/whatsapp"
+              href="https://wa.me/6281357826070"
               text="Whatsapp"
-              className={`bg-transparent ${color}`}
+              className={`bg-transparent group-hover:text-primary ${color}`}
             />
           </div>
-          <div className="flex sm:hidden">
+          <div className={`flex sm:hidden ${color}`}>
             <button
               onClick={() => {
                 handleClick();
               }}
             >
-              <FontAwesomeIcon icon={faBars} />
+              {isOpen ? (
+                <FontAwesomeIcon icon={faClose} />
+              ) : (
+                <FontAwesomeIcon icon={faBars} />
+              )}
             </button>
           </div>
         </div>
@@ -78,45 +96,38 @@ const Navbar = () => {
       {/* hamburger */}
       <div
         className={`${
-          isOpen ? "w-1/2" : "w-0 pointer-events-none"
-        } sm:hidden fixed top-0 right-0 flex transition-all ease-in-out  h-screen shadow-2xl overflow-hidden bg-secondary z-40  `}
+          isOpen ? "-translate-x-0" : "-translate-x-full"
+        } sm:hidden fixed top-0 left-0 flex transition-all ease-in-out  h-screen shadow-2xl overflow-hidden bg-secondary z-60  `}
       >
         {isOpen && (
-          <div className="flex flex-col py-10 px-6 w-full text-dark h-full relative">
-            <button
-              className="absolute z-40 top-4 left-4"
-              onClick={handleClick}
-            >
-              <FontAwesomeIcon icon={faClose} />
-            </button>
-            <Link
-              href="/home"
-              className="py-4 text-lg font-semibold"
-              onClick={handleClick}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="py-4 text-lg font-semibold"
-              onClick={handleClick}
-            >
-              Tentang Kami
-            </Link>
-            <Link
-              href="/projects"
-              className="py-4 text-lg font-semibold"
-              onClick={handleClick}
-            >
-              Portofolio
-            </Link>
-            <Link
-              href="/contact"
-              className="py-4 text-lg font-semibold"
-              onClick={handleClick}
-            >
-              Hubungi Kami
-            </Link>
+          <div className="flex flex-col py-10 px-8 w-full text-dark h-full relative">
+            <ul className="flex flex-col gap-8">
+              {[
+                { href: "/", text: "Home" },
+                { href: "/about", text: "Tentang Kami" },
+                { href: "/projects", text: "Project" },
+                { href: "/contact", text: "Hubungi Kami" },
+              ].map((item) => (
+                <li
+                  key={item.href}
+                  className={`relative pb-1 bg-transparent ${
+                    pathname === item.href ? "text-primary font-semibold" : ""
+                  } group`}
+                >
+                  <Button
+                    type="href"
+                    text={item.text}
+                    href={item.href}
+                    className={` bg-transparent `}
+                  />
+                  <span
+                    className={`absolute left-0 top-7 h-[1.5px] w-full bg-primary transform transition-all duration-300 scale-x-0 group-hover:scale-x-100 origin-left ${
+                      pathname === item.href ? "scale-x-100" : ""
+                    }`}
+                  ></span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

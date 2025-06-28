@@ -3,11 +3,13 @@ import React from "react";
 const About = () => {
   return (
     <div
-      className="flex items-center justify-start py-40 bg-secondary w-full"
+      className="flex items-center justify-center py-20 md:py-40 bg-secondary w-full"
       id="services"
     >
-      <div className="max-w-7xl w-full flex flex-col px-6 sm:px-12 lg:px-24 text-dark relative z-10">
-        <h1 className="text-4xl font-bold mb-6 text-dark">Tentang Kami</h1>
+      <div className="max-w-7xl w-full flex flex-col px-8 sm:px-12 lg:px-24 text-dark relative z-10">
+        <h1 className="text-xl sm:text-4xl font-bold mb-6 text-dark">
+          Tentang Kami
+        </h1>
         <p className="mb-4 text-gray-700 leading-relaxed">
           Kami adalah perusahaan kontraktor yang berdedikasi dalam mendukung
           kelancaran operasional industri pertambangan dan energi di Indonesia.

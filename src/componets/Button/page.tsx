@@ -18,7 +18,7 @@ const Button = ({
     throw new Error("Invalid text prop: It must be a non-empty string.");
   }
 
-  const defalutStyle = `${className} bg-primary  px-4 py-2 rounded-md font-medium hover:bg-dark hover:text-secondary transition-all duration-300`;
+  const defalutStyle = `${className} bg-primary  px-4 py-2 rounded-md font-medium transition-all duration-300`;
   if (type !== "href") {
     return (
       <button type={type} className={defalutStyle} {...props}>

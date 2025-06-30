@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
@@ -19,7 +20,18 @@ const Home = () => {
         className="py-30 sm:py-0 sm:min-h-screen w-full bg-cover flex items-center justify-center relative bg-no-repeat bg-center"
       >
         <div className="max-w-7xl w-full flex px-6 sm:px-12 lg:px-24 text-white relative z-10">
-          <div className="w-full sm:w-1/2 flex flex-col justify-center">
+          <motion.div
+            initial={{ x: -150, opacity: 0 }}
+            whileInView={{
+              x: 0,
+              transition: {
+                type: "spring",
+                duration: 0.3,
+              },
+              opacity: 1,
+            }}
+            className="w-full sm:w-1/2 flex flex-col justify-center"
+          >
             <h6 className="text-primary text-xl sm:text-3xl font-semibold">
               Selamat Datang !!
             </h6>
@@ -40,7 +52,7 @@ const Home = () => {
                 text="Hubungi Kami"
               />
             </div>
-          </div>
+          </motion.div>
           <div className="hidden sm:flex w-1/2 items-start h-[506px] justify-start">
             <Image
               src="/images/profile.png"
@@ -61,7 +73,18 @@ const Home = () => {
       >
         <div className="max-w-7xl w-full flex flex-col px-6 sm:px-12 lg:px-24 text-dark relative z-10">
           <h1 className="text-2xl font-bold">Layanan Kami</h1>
-          <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 150 }}
+            whileInView={{
+              y: 0,
+              transition: {
+                type: "tween",
+                duration: 1,
+              },
+              opacity: 1,
+            }}
+            className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6"
+          >
             <div className="p-4 sm:p-6 border border-dark hover:shadow-2xl transition-all ease-in-out duration-200 rounded-lg">
               <FontAwesomeIcon icon={faHome} className="text-xl" />
               <h1 className="text-base font-semibold">Konstruksi Perumahan</h1>
@@ -94,7 +117,7 @@ const Home = () => {
                 yang optimal
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -105,7 +128,18 @@ const Home = () => {
       >
         <div className="max-w-7xl w-full flex flex-col px-6 sm:px-12 lg:px-24 text-dark relative z-10">
           <h1 className="text-2xl font-bold">Project Unggulan</h1>
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 150 }}
+            whileInView={{
+              y: 0,
+              transition: {
+                type: "tween",
+                duration: 1,
+              },
+              opacity: 1,
+            }}
+            className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6"
+          >
             {projects.slice(0, 3).map((project) => (
               <div key={project.id} className="rounded-lg">
                 <div className="overflow-hidden w-full rounded-lg">
@@ -119,7 +153,7 @@ const Home = () => {
                 <p className="text-xs text-gray-500">{project.description}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

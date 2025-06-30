@@ -30,11 +30,11 @@ const Navbar = () => {
   console.log("Current route:", pathname);
   return (
     <>
-      <nav className="flex items-center bg-transparent justify-center px-8 sm:px-24  z-50 absolute top-0 py-6 w-full">
+      <nav className="flex items-center bg-transparent justify-center px-6 sm:px-24  z-50 absolute top-0 py-6 w-full">
         <div className="flex justify-between max-w-7xl w-full">
           <div>
             <h1
-              className={`text-lg sm:text-2xl font-bold text-center ${color}`}
+              className={`text-xl sm:text-2xl font-bold text-center ${color}`}
             >
               Consturctor <span className="text-primary">App.</span>
             </h1>
